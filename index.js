@@ -245,4 +245,7 @@ new Profile().managerProfile();
 //Next: start working generate profile? figure out how to create New engineer and intern. use js fies... 
 /// need to back up and have employee prompts, then mannager, then engineer, then intern?? for testing purposes?
 //consider moving prompts to employee.js
+// 3:18pm 
+// -added validations to each prompt, added functions and constructors to intern, engineer, manager, and employee js
+
 
