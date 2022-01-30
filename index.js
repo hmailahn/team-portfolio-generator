@@ -38,7 +38,7 @@ Profile.prototype.managerProfile = function () {
     ])
     //asynchronously takes data to generate profile and then goes to menu
     .then(managerData => {
-        generateProfile(managerData);
+        // generateProfile(managerData);
         this.menu();
      });
 
@@ -92,7 +92,7 @@ Profile.prototype.engineerProfile = function () {
     ])
     //asynchronously take data to generate profile and go back to menu
     .then(engineerData => {
-        generateProfile(engineerData);
+        // generateProfile(engineerData);
         this.menu();
      });
 };
@@ -123,7 +123,7 @@ Profile.prototype.internProfile = function() {
     ])
     //asynchronously take data to generate profile and go back to menu
     .then(internData => {
-        generateProfile(internData);
+        // generateProfile(internData);
         this.menu();
      });
 }
@@ -143,5 +143,9 @@ new Profile().managerProfile();
 //   - create the inquirer prompts in each page: Employee, engineer, intern, manager?
     //  or set up one prompt and have when questions. Take answers to generate a page. Some how add functions???
     /// added initial inquier....
+/// 2:26pm - 
+// got manager function to work up until generateprofile....
+//-added menu, intern, engineer, and gernate profile functions. 
+//Next: start working generate profile? figure out how to create New engineer and intern. use js fies... 
 
 
