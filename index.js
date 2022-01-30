@@ -18,22 +18,54 @@ Profile.prototype.managerProfile = function () {
         {
             type: 'text',
             name: 'name',
-            message: "What is the team manager's name?"
+            message: "What is the team manager's name?",
+            validate: name => {
+                if (name) {
+                    return true;
+                } else {
+                    console.log('You need to enter a name!');
+                    return false;
+                }
+            }
         },
         {
             type: 'text',
             name: 'id',
-            message: 'What is the employee ID?'
+            message: 'What is the employee ID?',
+            validate: id => {
+                if (id) {
+                    return true;
+                } else {
+                    console.log('You need to enter an id!');
+                    return false;
+                }
+            }
         },
         {
             type: 'text',
             name: 'email',
-            message: 'What is the email address of the employee?'
+            message: 'What is the email address of the employee?',
+            validate: email => {
+                if (email) {
+                    return true;
+                } else {
+                    console.log('You need to enter an email!');
+                    return false;
+                }
+            }
         },
         {
             type: 'text',
             name: 'office',
-            message: 'What is the office number of the employee?'
+            message: 'What is the office number of the employee?',
+            validate: office => {
+                if (office) {
+                    return true;
+                } else {
+                    console.log('You need to enter an office number!');
+                    return false;
+                }
+            }
         },
     ])
     //asynchronously takes data to generate profile and then goes to menu
@@ -72,22 +104,54 @@ Profile.prototype.engineerProfile = function () {
         {
             type: 'text',
             name: 'engineerName',
-            message: 'What is the name of the engineer?'
+            message: 'What is the name of the engineer?',
+            validate: engineerName => {
+                if (engineerName) {
+                    return true;
+                } else {
+                    console.log('You need to enter a name!');
+                    return false;
+                }
+            }
         },
         {
             type: 'text',
             name: 'engineerId',
-            message: 'What is the employee ID?'
+            message: 'What is the employee ID?',
+            validate: engineerId => {
+                if (engineerId) {
+                    return true;
+                } else {
+                    console.log('You need to enter an ID!');
+                    return false;
+                }
+            }
         },
         {
             type: 'text',
             name: 'engineerEmail',
-            message: 'What is the email address of the employee?'
+            message: 'What is the email address of the employee?',
+            validate: engineerEmail => {
+                if (engineerEmail) {
+                    return true;
+                } else {
+                    console.log('You need to enter an email!');
+                    return false;
+                }
+            }
         },
         {
             type: 'text',
             name: 'github',
-            message: 'What is GitHub username of employee?'
+            message: 'What is GitHub username of employee?',
+            validate: github => {
+                if (github) {
+                    return true;
+                } else {
+                    console.log('You need to enter a github username!');
+                    return false;
+                }
+            }
         },
     ])
     //asynchronously take data to generate profile and go back to menu
@@ -103,22 +167,54 @@ Profile.prototype.internProfile = function() {
         {
             type: 'text',
             name: 'internName',
-            message: 'What is the name of the intern?'
+            message: 'What is the name of the intern?',
+            validate: internName => {
+                if (internName) {
+                    return true;
+                } else {
+                    console.log('You need to enter a name!');
+                    return false;
+                }
+            }
         },
         {
             type: 'text',
             name: 'internId',
-            message: 'What is the employee ID?'
+            message: 'What is the employee ID?',
+            validate: internId => {
+                if (internId) {
+                    return true;
+                } else {
+                    console.log('You need to enter an ID!');
+                    return false;
+                }
+            }
         },
         {
             type: 'text',
             name: 'internEmail',
-            message: 'What is the email address of the employee?'
+            message: 'What is the email address of the employee?',
+            validate: internEmail => {
+                if (internEmail) {
+                    return true;
+                } else {
+                    console.log('You need to enter an email!');
+                    return false;
+                }
+            }
         },
         {
             type: 'text',
             name: 'school',
-            message: 'Where does the intern attend school?'
+            message: 'Where does the intern attend school?',
+            validate: school => {
+                if (school) {
+                    return true;
+                } else {
+                    console.log('You need to enter a school!');
+                    return false;
+                }
+            }
         },
     ])
     //asynchronously take data to generate profile and go back to menu
@@ -147,5 +243,6 @@ new Profile().managerProfile();
 // got manager function to work up until generateprofile....
 //-added menu, intern, engineer, and gernate profile functions. 
 //Next: start working generate profile? figure out how to create New engineer and intern. use js fies... 
-
+/// need to back up and have employee prompts, then mannager, then engineer, then intern?? for testing purposes?
+//consider moving prompts to employee.js
 
