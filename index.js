@@ -1,7 +1,7 @@
 const inquirer = require('inquirer');
 const Manager = require('./lib/Manager.js');
 const Engineer = require('./lib/Engineer.js');
-const Intern = require('./lib/Manager.js');
+const Intern = require('./lib/Intern.js');
 const Employee = require('./lib/Employee.js');
 const fs = require('fs');
 const generateWebpage = require('./dist/page-template');
@@ -107,7 +107,7 @@ Profile.prototype.engineerProfile = function () {
     inquirer.prompt([
         {
             type: 'text',
-            name: 'engineerName',
+            name: 'name',
             message: 'What is the name of the engineer?',
             validate: engineerName => {
                 if (engineerName) {
@@ -120,7 +120,7 @@ Profile.prototype.engineerProfile = function () {
         },
         {
             type: 'text',
-            name: 'engineerId',
+            name: 'id',
             message: 'What is the employee ID?',
             validate: engineerId => {
                 if (engineerId) {
@@ -133,7 +133,7 @@ Profile.prototype.engineerProfile = function () {
         },
         {
             type: 'text',
-            name: 'engineerEmail',
+            name: 'email',
             message: 'What is the email address of the employee?',
             validate: engineerEmail => {
                 if (engineerEmail) {
@@ -170,7 +170,7 @@ Profile.prototype.internProfile = function() {
       inquirer.prompt([
         {
             type: 'text',
-            name: 'internName',
+            name: 'name',
             message: 'What is the name of the intern?',
             validate: internName => {
                 if (internName) {
@@ -183,7 +183,7 @@ Profile.prototype.internProfile = function() {
         },
         {
             type: 'text',
-            name: 'internId',
+            name: 'id',
             message: 'What is the employee ID?',
             validate: internId => {
                 if (internId) {
@@ -196,7 +196,7 @@ Profile.prototype.internProfile = function() {
         },
         {
             type: 'text',
-            name: 'internEmail',
+            name: 'email',
             message: 'What is the email address of the employee?',
             validate: internEmail => {
                 if (internEmail) {
@@ -233,7 +233,7 @@ Profile.prototype.internProfile = function() {
 //takes data from manager, engineer, and intern to build index html portfolio
 Profile.prototype.generateProfile = function () {
 // this.engineer = new Engineer(data?)look at jest another rpg
-generateWebpage(employees);
+console.log(employees);
 
 
 
