@@ -4,8 +4,7 @@ const Engineer = require('./lib/Engineer.js');
 const Intern = require('./lib/Manager.js');
 const Employee = require('./lib/Employee.js');
 const fs = require('fs');
-const writeFile = require('./dist/page-template');
-const generateWebpage = require('./dist/generateHTML');
+const generateWebpage = require('./dist/page-template');
 
 //array of employees to push data too
 var employees = [];
@@ -234,7 +233,7 @@ Profile.prototype.internProfile = function() {
 //takes data from manager, engineer, and intern to build index html portfolio
 Profile.prototype.generateProfile = function () {
 // this.engineer = new Engineer(data?)look at jest another rpg
-writeFile(generateWebpage(employees))
+generateWebpage(employees);
 
 
 
