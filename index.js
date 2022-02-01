@@ -3,8 +3,12 @@ const Manager = require('./lib/Manager.js');
 const Engineer = require('./lib/Engineer.js');
 const Intern = require('./lib/Manager.js');
 const Employee = require('./lib/Employee.js');
+const fs = require('fs');
+const writeFile = require('./dist/page-template');
+const generateWebpage = require('./dist/generateHTML');
 
-
+//array of employees to push data too
+var employees = [];
 function Profile() {
     this.engineer;
     this.intern;
@@ -69,8 +73,9 @@ Profile.prototype.managerProfile = function () {
         },
     ])
     //asynchronously takes data to generate profile and then goes to menu
-    .then(managerData => {
+    .then(({ name, id, email, office}) => {
         // generateProfile(managerData);
+        employees.push(new Manager(name, id, email, office));
         this.menu();
      });
 
@@ -92,7 +97,7 @@ Profile.prototype.menu = function () {
         } else if (action === 'Add intern') {
             return this.internProfile();
         } else if (action === 'Finish building my team') {
-            return this.buildTeam();
+            return this.generateProfile();
         }
     });
 };
@@ -155,8 +160,8 @@ Profile.prototype.engineerProfile = function () {
         },
     ])
     //asynchronously take data to generate profile and go back to menu
-    .then(engineerData => {
-        // generateProfile(engineerData);
+    .then(({ name, id, email, github}) => {
+        employees.push(new Engineer(name, id, email, github));
         this.menu();
      });
 };
@@ -218,16 +223,21 @@ Profile.prototype.internProfile = function() {
         },
     ])
     //asynchronously take data to generate profile and go back to menu
-    .then(internData => {
-        // generateProfile(internData);
+    .then(({ name, id, email, school}) => {
+        
+        employees.push(new Intern(name, id, email, school));
         this.menu();
      });
 }
 
 
 //takes data from manager, engineer, and intern to build index html portfolio
-Profile.prototype.generateProfile = function (managerData, engineerData, internData) {
+Profile.prototype.generateProfile = function () {
 // this.engineer = new Engineer(data?)look at jest another rpg
+writeFile(generateWebpage(employees))
+
+
+
 }
 // new Profile().managerProfile(); ????????
 new Profile().managerProfile();
@@ -240,12 +250,13 @@ new Profile().managerProfile();
     //  or set up one prompt and have when questions. Take answers to generate a page. Some how add functions???
     /// added initial inquier....
 /// 2:26pm - 
-// got manager function to work up until generateprofile....
-//-added menu, intern, engineer, and gernate profile functions. 
 //Next: start working generate profile? figure out how to create New engineer and intern. use js fies... 
 /// need to back up and have employee prompts, then mannager, then engineer, then intern?? for testing purposes?
 //consider moving prompts to employee.js
 // 3:18pm 
 // -added validations to each prompt, added functions and constructors to intern, engineer, manager, and employee js
-
+// consider moving questions to employeee profile and use this to generate html??
+// 2/1/20 - to do 
+//1:19pm - delete employee test
+//1:38 created failed tests, need to figure how out to pass inter, enginner, and manager. I think it's with the prompts...
 
