@@ -21,10 +21,14 @@ return `<section>
 </div>
 </section>`
 
-}
+};
 
 
 const engineerCard = (Engineer) => {
+    if(!Engineer) {
+        return ''
+    }
+    
 
     return `<section>
         <div class="container">
@@ -43,13 +47,17 @@ const engineerCard = (Engineer) => {
                 </div>
             </div>
         </div>
-    </section>`
+    </section>`;
 
-}
+};
 
 
 
 const internCard = () => {
+    if(!Intern) {
+        return ''
+    }
+
     return `
     <section>
         <div class="container">
@@ -69,9 +77,9 @@ const internCard = () => {
             </div>
         </div>
     </section>
-    `
+    `;
 
-}
+};
 
 
 //export function to generate entire page
@@ -102,7 +110,11 @@ module.exports = templateData => {
 <main>
     <div class="flex-wrap">
 
-${managerCard(Manager)};  
+${managerCard(Manager)}
+
+${engineerCard(Engineer)}
+
+${internCard(Intern)}
 
     
 
