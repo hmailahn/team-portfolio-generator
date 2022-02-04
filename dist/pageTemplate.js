@@ -1,6 +1,8 @@
 
-const managerCard = (Manager) => {
-const { name, id, email, officeNumber } = Manager;
+
+const managerCard = (employees) => {
+    
+
 
 return `<section>
 <div class="container">
@@ -24,7 +26,7 @@ return `<section>
 };
 
 
-const engineerCard = (Engineer) => {
+const engineerCard = () => {
     if(!Engineer) {
         return ''
     }
