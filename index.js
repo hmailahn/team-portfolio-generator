@@ -258,4 +258,5 @@ new Profile().managerProfile();
 // 2/1/20 - to do 
 //1:19pm - delete employee test
 //1:38 created failed tests, need to figure how out to pass inter, enginner, and manager. I think it's with the prompts...
-
+/// 2:52 - template questions work, able to add more than one object (engineer, intern)
+// console.loged and worked. Now need to figure out how to take info display"
