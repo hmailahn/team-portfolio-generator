@@ -4,7 +4,7 @@ const Engineer = require('./lib/Engineer.js');
 const Intern = require('./lib/Intern.js');
 const Employee = require('./lib/Employee.js');
 const fs = require('fs');
-const generateWebpage = require('./dist/page-template');
+const pageTemplate = require('./dist/page-template');
 
 //array of employees to push data too
 var employees = [];
@@ -235,6 +235,15 @@ Profile.prototype.generateProfile = function () {
 // this.engineer = new Engineer(data?)look at jest another rpg
 console.log(employees);
 
+const indexFile = pageTemplate(employees)
+fs.writeFile('./index.html', pageTemplate, err => {
+    if (err) throw new Error(err);
+    console.log('Page created, checkout index in this directory!');
+    
+})
+
+
+
 
 
 }
@@ -260,3 +269,8 @@ new Profile().managerProfile();
 //1:38 created failed tests, need to figure how out to pass inter, enginner, and manager. I think it's with the prompts...
 /// 2:52 - template questions work, able to add more than one object (engineer, intern)
 // console.loged and worked. Now need to figure out how to take info display"
+
+
+// 2/4/2022
+// creating fiunction to move to pagetemplate.js and will write html code in there. need html and javascript to append employees
+//consider doing .managerProfile().then ....
