@@ -1,6 +1,6 @@
+// const { Manager, Engineer, Intern } = employees;
 
-
-const managerCard = (employees) => {
+const managerCard = (manager) => {
     
 
 
@@ -10,13 +10,13 @@ return `<section>
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <div class="card-header bg-primary text-white">
-                <h4 class="card-title"><span class="material-icons">local_cafe</span>${name}</h4>
+                <h4 class="card-title"><span class="material-icons">local_cafe</span>${manager.name}</h4>
                 <h5 class="card-subtitle mb-2">Manager</h5>
                 </div>
                 <p></p>
-                <h6 class="card-text">ID: ${id}</h6>
-                <h6 class="card-text">Email: <a href="mailto:${email}">${email}</a></h6>
-                <h6 class="card-text">Ofice Number: ${officeNumber}</h6>
+                <h6 class="card-text">ID: ${manager.id}</h6>
+                <h6 class="card-text">Email: <a href="mailto:${email}">${manager.email}</a></h6>
+                <h6 class="card-text">Ofice Number: ${manager.officeNumber}</h6>
             </div>
         </div>
     </div>
@@ -26,8 +26,9 @@ return `<section>
 };
 
 
-const engineerCard = () => {
-    if(!Engineer) {
+const engineerCard = (engineer) => {
+    
+    if(!engineer) {
         return ''
     }
     
@@ -38,13 +39,13 @@ const engineerCard = () => {
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <div class="card-header bg-primary text-white">
-                        <h4 class="card-title"><span class="material-icons">engineering</span>${name}</h4>
+                        <h4 class="card-title"><span class="material-icons">engineering</span>${engineer.name}</h4>
                         <h5 class="card-subtitle mb-2">Engineer</h5>
                         </div>
                         <p></p>
-                        <h6 class="card-text">ID: ${id}</h6>
-                        <h6 class="card-text">Email: <a href="mailto:${email}">${email}</a></h6>
-                        <h6 class="card-text">GitHub: <a href="https://github.com/${github}">${github}</a></h6>
+                        <h6 class="card-text">ID: ${engineer.id}</h6>
+                        <h6 class="card-text">Email: <a href="mailto:${engineer.email}">${engineer.email}</a></h6>
+                        <h6 class="card-text">GitHub: <a href="https://github.com/${engineer.github}">${engineer.github}</a></h6>
                     </div>
                 </div>
             </div>
@@ -55,8 +56,9 @@ const engineerCard = () => {
 
 
 
-const internCard = () => {
-    if(!Intern) {
+const internCard = (intern) => {
+
+    if(!intern) {
         return ''
     }
 
@@ -67,13 +69,13 @@ const internCard = () => {
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <div class="card-header bg-primary text-white">
-                        <h4 class="card-title"><span class="material-icons">school</span>${name}</h4>
+                        <h4 class="card-title"><span class="material-icons">school</span>${intern.name}</h4>
                         <h5 class="card-subtitle mb-2">Intern</h5>
                         </div>
                         <p></p>
-                        <h6 class="card-text">ID: ${id}</h6>
-                        <h6 class="card-text">Email: <a href="mailto:${email}">${email}</a></h6>
-                        <h6 class="card-text">School ${school}</h6>
+                        <h6 class="card-text">ID: ${intern.id}</h6>
+                        <h6 class="card-text">Email: <a href="mailto:${email}">${intern.email}</a></h6>
+                        <h6 class="card-text">School ${intern.school}</h6>
                     </div>
                 </div>
             </div>
@@ -85,9 +87,9 @@ const internCard = () => {
 
 
 //export function to generate entire page
-module.exports = templateData => {
+const pageTemplate = (employees) => {
     //destructure page dataa by type of employee... 
-    const { Manager, Engineer, Intern } = templateData;
+   
 
     return `
     <!DOCTYPE html>
@@ -112,11 +114,11 @@ module.exports = templateData => {
 <main>
     <div class="flex-wrap">
 
-${managerCard(Manager)}
+${managerCard(employees)}
 
-${engineerCard(Engineer)}
+${engineerCard(employees)}
 
-${internCard(Intern)}
+${internCard(employees)}
 
     
 
@@ -131,3 +133,4 @@ ${internCard(Intern)}
     `;
 };
 
+module.exports = pageTemplate;

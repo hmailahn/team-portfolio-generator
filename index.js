@@ -8,14 +8,14 @@ const pageTemplate = require('./dist/pageTemplate');
 
 //array of employees to push data too
 var employees = [];
-function Profile() {
-    this.engineer;
-    this.intern;
-    this.manager;
-}
+// function Profile() {
+//     this.engineer;
+//     this.intern;
+//     this.manager;
+// }
 
 //Make manager profile
-Profile.prototype.managerProfile = function () {
+const managerProfile = function () {
     // prompts for manager
     inquirer.prompt([
         {
@@ -72,45 +72,34 @@ Profile.prototype.managerProfile = function () {
         },
     ])
     //asynchronously takes data to generate profile and then goes to menu
-    .then(({ name, id, email, office}) => {
-        // generateProfile(managerData);
-        employees.push(new Manager(name, id, email, office));
-        this.menu();
-     });
-
+    .then(managerData => {
+        const { name, id, email, officeNumber } = managerData;
+        const manager = new Manager(name, id, email, officeNumber);
+        employees.push(manager);
+       
+      
+    })
 };
+
+
+
 
 ///menu
-Profile.prototype.menu = function () {
+const menu = function () {
     //select engineer, intern, or finish team
-    inquirer.prompt({
-        type: 'list',
-        message: 'What would you like to do?',
-        name: 'action',
-        choices: ['Add engineer', 'Add intern', 'Finish building my team']
-    })
-    // asynchronously takes action and goes to engineerProfile, internProfile or buildteam
-    .then(({ action }) => {
-        if (action === 'Add engineer') {
-            return this.engineerProfile(); ///or super? - refer to jest.another.rpg
-        } else if (action === 'Add intern') {
-            return this.internProfile();
-        } else if (action === 'Finish building my team') {
-            return this.generateProfile();
-        }
-    });
-};
-
-//build engineer profile
-Profile.prototype.engineerProfile = function () {
-    //prompts
     inquirer.prompt([
+        {
+        type: 'list',
+        message: 'What employee would you like to add?',
+        name: 'role',
+        choices: ['Engineer', 'Intern']
+        },
         {
             type: 'text',
             name: 'name',
             message: 'What is the name of the engineer?',
-            validate: engineerName => {
-                if (engineerName) {
+            validate: nameInput => {
+                if (nameInput) {
                     return true;
                 } else {
                     console.log('You need to enter a name!');
@@ -122,8 +111,8 @@ Profile.prototype.engineerProfile = function () {
             type: 'text',
             name: 'id',
             message: 'What is the employee ID?',
-            validate: engineerId => {
-                if (engineerId) {
+            validate: idInput => {
+                if (idInput) {
                     return true;
                 } else {
                     console.log('You need to enter an ID!');
@@ -135,8 +124,8 @@ Profile.prototype.engineerProfile = function () {
             type: 'text',
             name: 'email',
             message: 'What is the email address of the employee?',
-            validate: engineerEmail => {
-                if (engineerEmail) {
+            validate: emailInput => {
+                if (emailInput) {
                     return true;
                 } else {
                     console.log('You need to enter an email!');
@@ -148,6 +137,7 @@ Profile.prototype.engineerProfile = function () {
             type: 'text',
             name: 'github',
             message: 'What is GitHub username of employee?',
+            when: (input) => input.role === 'Engineer',
             validate: github => {
                 if (github) {
                     return true;
@@ -157,60 +147,11 @@ Profile.prototype.engineerProfile = function () {
                 }
             }
         },
-    ])
-    //asynchronously take data to generate profile and go back to menu
-    .then(({ name, id, email, github}) => {
-        employees.push(new Engineer(name, id, email, github));
-        this.menu();
-     });
-};
-
-Profile.prototype.internProfile = function() {
-      //prompts
-      inquirer.prompt([
-        {
-            type: 'text',
-            name: 'name',
-            message: 'What is the name of the intern?',
-            validate: internName => {
-                if (internName) {
-                    return true;
-                } else {
-                    console.log('You need to enter a name!');
-                    return false;
-                }
-            }
-        },
-        {
-            type: 'text',
-            name: 'id',
-            message: 'What is the employee ID?',
-            validate: internId => {
-                if (internId) {
-                    return true;
-                } else {
-                    console.log('You need to enter an ID!');
-                    return false;
-                }
-            }
-        },
-        {
-            type: 'text',
-            name: 'email',
-            message: 'What is the email address of the employee?',
-            validate: internEmail => {
-                if (internEmail) {
-                    return true;
-                } else {
-                    console.log('You need to enter an email!');
-                    return false;
-                }
-            }
-        },
         {
             type: 'text',
             name: 'school',
             message: 'Where does the intern attend school?',
+            when: (input) => input.role === 'Intern',
             validate: school => {
                 if (school) {
                     return true;
@@ -220,38 +161,57 @@ Profile.prototype.internProfile = function() {
                 }
             }
         },
+        {
+            type: 'confirm',
+            name: 'confirmAddEmployee',
+            message: 'Would you like to add another employee?',
+            default: false
+        }
+
     ])
-    //asynchronously take data to generate profile and go back to menu
-    .then(({ name, id, email, school}) => {
-        
-        employees.push(new Intern(name, id, email, school));
-        this.menu();
-     });
-}
+    .then(employeesData => {
+        let { name , id, email, role, github, school, confirmAddEmployee} = employeesData;
+        let employee;
 
+        if(role === 'Engineer') {
+            employee = new Engineer(name, id, email, github);
+            console.log(employee);
+        } else if (role === "Intern") {
+            employee = new Intern(name, id, email, school);
+            console.log(employee);
+        }
+        employees.push(employee);
 
-//takes data from manager, engineer, and intern to build index html portfolio
-Profile.prototype.generateProfile = function () {
-// this.engineer = new Engineer(data?)look at jest another rpg
-console.log(employees)
-
-
-
-
-pageTemplate(employees);
-// fs.writeFile('./index.html', indexFile, err => {
-//     if (err) throw new Error(err);
-//     console.log('Page created, checkout index in this directory!');
+        if(confirmAddEmployee) {
+            return menu(employees)
+        } else {
+            return employees;
+        }
+    })
     
-// })
+};
 
 
-
-
+const writeFile = data => {
+    fs.writeFile('./index.html', data, err => {
+        if (err) {
+            console.log(err);
+            return;
+        } else {
+            console.log("Page created! Check out index.html")
+        }
+    })
 
 }
+
 // new Profile().managerProfile(); ????????
-new Profile().managerProfile();
+managerProfile()
+.then(menu)
+.then(employees => {
+return pageTemplate(employees)
+}).then(indexPage => {
+    return writeFile(indexPage);
+})
 
 
 ///// 1/30/20 12:51pm
