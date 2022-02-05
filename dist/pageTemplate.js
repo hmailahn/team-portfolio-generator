@@ -15,7 +15,7 @@ return `<section>
                 </div>
                 <p></p>
                 <h6 class="card-text">ID: ${manager.id}</h6>
-                <h6 class="card-text">Email: <a href="mailto:${email}">${manager.email}</a></h6>
+                <h6 class="card-text">Email: <a href="mailto:${manager.email}">${manager.email}</a></h6>
                 <h6 class="card-text">Ofice Number: ${manager.officeNumber}</h6>
             </div>
         </div>
@@ -74,7 +74,7 @@ const internCard = (intern) => {
                         </div>
                         <p></p>
                         <h6 class="card-text">ID: ${intern.id}</h6>
-                        <h6 class="card-text">Email: <a href="mailto:${email}">${intern.email}</a></h6>
+                        <h6 class="card-text">Email: <a href="mailto:${intern.email}">${intern.email}</a></h6>
                         <h6 class="card-text">School ${intern.school}</h6>
                     </div>
                 </div>

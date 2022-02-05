@@ -17,7 +17,7 @@ var employees = [];
 //Make manager profile
 const managerProfile = function () {
     // prompts for manager
-    inquirer.prompt([
+   return inquirer.prompt([
         {
             type: 'text',
             name: 'name',
@@ -87,7 +87,7 @@ const managerProfile = function () {
 ///menu
 const menu = function () {
     //select engineer, intern, or finish team
-    inquirer.prompt([
+  return  inquirer.prompt([
         {
         type: 'list',
         message: 'What employee would you like to add?',
@@ -97,7 +97,7 @@ const menu = function () {
         {
             type: 'text',
             name: 'name',
-            message: 'What is the name of the engineer?',
+            message: 'What is the name of the employee?',
             validate: nameInput => {
                 if (nameInput) {
                     return true;
