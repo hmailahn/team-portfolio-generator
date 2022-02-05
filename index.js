@@ -192,8 +192,8 @@ const menu = function () {
 };
 
 
-const writeFile = data => {
-    fs.writeFile('./index.html', data, err => {
+const writeFile = employees => {
+    fs.writeFile('./index.html', employees, err => {
         if (err) {
             console.log(err);
             return;
