@@ -27,7 +27,7 @@ return `<section>
 
 
 const engineerCard = (engineer) => {
-    
+   
     if(!engineer) {
         return ''
     }
@@ -87,7 +87,7 @@ const internCard = (intern) => {
 
 
 //export function to generate entire page
-const pageTemplate = (employees) => {
+const pageTemplate = (manager, intern, engineer) => {
     //destructure page dataa by type of employee... 
    
 
@@ -114,11 +114,11 @@ const pageTemplate = (employees) => {
 <main>
     <div class="flex-wrap">
 
-${managerCard(employees)}
+${managerCard(manager)}
 
-${engineerCard(employees)}
+${engineerCard(engineer)}
 
-${internCard(employees)}
+${internCard(intern)}
 
     
 
