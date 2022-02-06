@@ -185,7 +185,7 @@ const menu = function () {
         if(confirmAddEmployee) {
             return menu(employees)
         } else {
-            console.log(employees);
+            // console.log(employees);
             return employees;
             
         }
@@ -198,131 +198,10 @@ const menu = function () {
 
 
 
-
-
-// const managerCard = (manager) => {
-//     return `<section>
-//     <div class="container">
-//         <div class="manager">
-//             <div class="card" style="width: 18rem;">
-//                 <div class="card-body">
-//                     <div class="card-header bg-primary text-white">
-//                     <h4 class="card-title"><span class="material-icons">local_cafe</span>${manager.name}</h4>
-//                     <h5 class="card-subtitle mb-2">Manager</h5>
-//                     </div>
-//                     <p></p>
-//                     <h6 class="card-text">ID: ${manager.id}</h6>
-//                     <h6 class="card-text">Email: <a href="mailto:${manager.email}">${manager.email}</a></h6>
-//                     <h6 class="card-text">Ofice Number: ${manager.officeNumber}</h6>
-//                 </div>
-//             </div>
-//         </div>
-//     </div>
-//     </section>`
-    
-//     };
-    
-    
-//     const engineerCard = (engineer) => {
-//         if(!engineer) {
-//             return ''
-//         }
-//         return `<section>
-//             <div class="container">
-//                 <div class="engineer">
-//                     <div class="card" style="width: 18rem;">
-//                         <div class="card-body">
-//                             <div class="card-header bg-primary text-white">
-//                             <h4 class="card-title"><span class="material-icons">engineering</span>${engineer.name}</h4>
-//                             <h5 class="card-subtitle mb-2">Engineer</h5>
-//                             </div>
-//                             <p></p>
-//                             <h6 class="card-text">ID: ${engineer.id}</h6>
-//                             <h6 class="card-text">Email: <a href="mailto:${engineer.email}">${engineer.email}</a></h6>
-//                             <h6 class="card-text">GitHub: <a href="https://github.com/${engineer.github}">${engineer.github}</a></h6>
-//                         </div>
-//                     </div>
-//                 </div>
-//             </div>
-//         </section>`;
-    
-//     };
-    
-//     const internCard = (intern) => {
-    
-//         if(!intern) {
-//             return ''
-//         }
-//         return `
-//         <section>
-//             <div class="container">
-//                 <div class="intern">
-//                     <div class="card" style="width: 18rem;">
-//                         <div class="card-body">
-//                             <div class="card-header bg-primary text-white">
-//                             <h4 class="card-title"><span class="material-icons">school</span>${intern.name}</h4>
-//                             <h5 class="card-subtitle mb-2">Intern</h5>
-//                             </div>
-//                             <p></p>
-//                             <h6 class="card-text">ID: ${intern.id}</h6>
-//                             <h6 class="card-text">Email: <a href="mailto:${intern.email}">${intern.email}</a></h6>
-//                             <h6 class="card-text">School ${intern.school}</h6>
-//                         </div>
-//                     </div>
-//                 </div>
-//             </div>
-//         </section>
-//         `;
-    
-//     };
-    
-//     //export function to generate entire page
-//     const pageTemplate = (manager, intern, engineer) => {
-//         //destructure page dataa by type of employee... 
-    
-//         return `
-//         <!DOCTYPE html>
-//     <html lang="en">
-    
-//     <head>
-//         <meta charset="UTF-8">
-//         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-//         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-//         <title>Team Portfolio</title>
-//         <link rel="stylesheet" href="style.css">
-//         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-//             integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-//         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-//     </head>
-    
-//     <body>
-//         <header>
-//             <h1>My Team</h1>
-//         </header>
-    
-//     <main>
-//         <div class="flex-wrap">
-    
-//     ${managerCard(manager)}
-    
-//     ${engineerCard(engineer)}
-    
-//     ${internCard(intern)}
-        
-//     </div>
-//     </main> 
-    
-//     </body>
-    
-//     </html>
-//         `;
-//     };
-
-
 // new Profile().managerProfile(); ????????
 managerProfile()
 .then(menu)
-.then( console.log(employees));
+.then(data => pageTemplate(data));
     
 //     employeeDetails => {
 //     const pageHTML = pageTemplate(employeeDetails)
@@ -342,33 +221,3 @@ managerProfile()
 
 
 
-
-
-// (indexPage => {
-//     return writeFile(indexPage);
-// })
-
-
-///// 1/30/20 12:51pm
-// istalled dependencies, ran first failed test in employee.test. Added constructor to employee.j
-// 1"09pm thoughts on how to go about this:
-//   - create the inquirer prompts in each page: Employee, engineer, intern, manager?
-    //  or set up one prompt and have when questions. Take answers to generate a page. Some how add functions???
-    /// added initial inquier....
-/// 2:26pm - 
-//Next: start working generate profile? figure out how to create New engineer and intern. use js fies... 
-/// need to back up and have employee prompts, then mannager, then engineer, then intern?? for testing purposes?
-//consider moving prompts to employee.js
-// 3:18pm 
-// -added validations to each prompt, added functions and constructors to intern, engineer, manager, and employee js
-// consider moving questions to employeee profile and use this to generate html??
-// 2/1/20 - to do 
-//1:19pm - delete employee test
-//1:38 created failed tests, need to figure how out to pass inter, enginner, and manager. I think it's with the prompts...
-/// 2:52 - template questions work, able to add more than one object (engineer, intern)
-// console.loged and worked. Now need to figure out how to take info display"
-
-
-// 2/4/2022
-// creating fiunction to move to pagetemplate.js and will write html code in there. need html and javascript to append employees
-//consider doing .managerProfile().then ....

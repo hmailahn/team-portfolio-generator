@@ -1,7 +1,3 @@
-// const { Manager, Engineer, Intern } = employees;
-
-const { registerPrompt } = require("inquirer");
-
 
 
 const managerCard = (manager) => {
@@ -77,8 +73,10 @@ if (role === 'Engineer') {
 
 
 //export function to generate entire page
-const pageTemplate = (manager, intern, engineer) => {
+const pageTemplate = (data) => {
     //destructure page dataa by type of employee... 
+    console.log(data);
+    
    
 
     return `
@@ -104,9 +102,7 @@ const pageTemplate = (manager, intern, engineer) => {
 <main>
     <div class="flex-wrap">
 
-${managerCard(manager)}
 
-${employeeCard}
 
 
 </div>
