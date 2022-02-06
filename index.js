@@ -201,19 +201,18 @@ const menu = function () {
 // new Profile().managerProfile(); ????????
 managerProfile()
 .then(menu)
-.then(data => pageTemplate(data));
-    
-//     employeeDetails => {
-//     const pageHTML = pageTemplate(employeeDetails)
+.then(data => {
+    const pageHTML = pageTemplate(data)
 
-//     fs.writeFile('./index.html', pageHTML, err => {
-//         if (err) {
-//             console.log(err);
-//             return;
-//         } else {
-//             console.log("Page created! Check out index.html")
-//         }
-//     })
+    fs.writeFile('./index.html', pageHTML, err => {
+        if (err) {
+            console.log(err);
+            return;
+        } else {
+            console.log("Page created! Check out index.html")
+        }
+    })
+});
 // console.log(Manager, intern, engineer);
 // })
 

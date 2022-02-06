@@ -1,6 +1,6 @@
 
 
-const managerCard = (manager) => {
+const managerCard = (data) => {
     
 return `<section>
 <div class="container">
@@ -8,13 +8,13 @@ return `<section>
         <div class="card" style="width: 18rem;">
             <div class="card-body">
                 <div class="card-header bg-primary text-white">
-                <h4 class="card-title"><span class="material-icons">local_cafe</span>${manager.name}</h4>
+                <h4 class="card-title"><span class="material-icons">local_cafe</span>${data.getName()}</h4>
                 <h5 class="card-subtitle mb-2">Manager</h5>
                 </div>
                 <p></p>
-                <h6 class="card-text">ID: ${manager.id}</h6>
-                <h6 class="card-text">Email: <a href="mailto:${manager.email}">${manager.email}</a></h6>
-                <h6 class="card-text">Ofice Number: ${manager.officeNumber}</h6>
+                <h6 class="card-text">ID: ${data.id}</h6>
+                <h6 class="card-text">Email: <a href="mailto:${data.email}">${data.email}</a></h6>
+                <h6 class="card-text">Ofice Number: ${data.officeNumber}</h6>
             </div>
         </div>
     </div>
@@ -23,28 +23,30 @@ return `<section>
 
 };
 
-const employeeCard = () => {
-if (role === 'Engineer') {
+const engineerCard = (data) => {
+
     return `<section>
         <div class="container">
             <div class="engineer">
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <div class="card-header bg-primary text-white">
-                        <h4 class="card-title"><span class="material-icons">engineering</span>${engineer.name}</h4>
+                        <h4 class="card-title"><span class="material-icons">engineering</span>${data.name}</h4>
                         <h5 class="card-subtitle mb-2">Engineer</h5>
                         </div>
                         <p></p>
-                        <h6 class="card-text">ID: ${engineer.id}</h6>
-                        <h6 class="card-text">Email: <a href="mailto:${engineer.email}">${engineer.email}</a></h6>
-                        <h6 class="card-text">GitHub: <a href="https://github.com/${engineer.github}">${engineer.github}</a></h6>
+                        <h6 class="card-text">ID: ${data.id}</h6>
+                        <h6 class="card-text">Email: <a href="mailto:${data.email}">${data.email}</a></h6>
+                        <h6 class="card-text">GitHub: <a href="https://github.com/${data.github}">${data.github}</a></h6>
                     </div>
                 </div>
             </div>
         </div>
     </section>`;
     }
-    if (role === 'Intern') {
+
+    const internCard = (data) => {
+    
         return `
     <section>
         <div class="container">
@@ -52,13 +54,13 @@ if (role === 'Engineer') {
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <div class="card-header bg-primary text-white">
-                        <h4 class="card-title"><span class="material-icons">school</span>${intern.name}</h4>
+                        <h4 class="card-title"><span class="material-icons">school</span>${data.name}</h4>
                         <h5 class="card-subtitle mb-2">Intern</h5>
                         </div>
                         <p></p>
-                        <h6 class="card-text">ID: ${intern.id}</h6>
-                        <h6 class="card-text">Email: <a href="mailto:${intern.email}">${intern.email}</a></h6>
-                        <h6 class="card-text">School ${intern.school}</h6>
+                        <h6 class="card-text">ID: ${data.id}</h6>
+                        <h6 class="card-text">Email: <a href="mailto:${data.email}">${data.email}</a></h6>
+                        <h6 class="card-text">School ${data.school}</h6>
                     </div>
                 </div>
             </div>
@@ -66,11 +68,28 @@ if (role === 'Engineer') {
     </section>
     `;
     
-    }
+    
 }
 
 
-
+const cards = data => {
+    var cardInput = '';
+    for (i=0; i < data.length; i ++) {
+        console.log(data[i])
+        if (data[i].getRole() === 'Manager') {
+            cardInput += managerCard(data[i]);
+        }
+        else if (data[i].getRole() === 'Intern'){
+            cardInput += internCard(data[i]);
+        }
+        else if (data[i].getRole() === 'Engineer') {
+            cardInput += engineerCard(data[i]);
+        }
+    }
+    console.log(cardInput);
+    return cardInput;
+   
+}
 
 //export function to generate entire page
 const pageTemplate = (data) => {
@@ -103,7 +122,7 @@ const pageTemplate = (data) => {
     <div class="flex-wrap">
 
 
-
+${cards(data)}
 
 </div>
 </main> 
