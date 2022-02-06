@@ -14,7 +14,7 @@ return `<section>
                 <p></p>
                 <h6 class="card-text">ID: ${data.id}</h6>
                 <h6 class="card-text">Email: <a href="mailto:${data.email}">${data.email}</a></h6>
-                <h6 class="card-text">Ofice Number: ${data.officeNumber}</h6>
+                <h6 class="card-text">Office Number: ${data.officeNumber}</h6>
             </div>
         </div>
     </div>
@@ -60,7 +60,7 @@ const engineerCard = (data) => {
                         <p></p>
                         <h6 class="card-text">ID: ${data.id}</h6>
                         <h6 class="card-text">Email: <a href="mailto:${data.email}">${data.email}</a></h6>
-                        <h6 class="card-text">School ${data.school}</h6>
+                        <h6 class="card-text">School: ${data.school}</h6>
                     </div>
                 </div>
             </div>
