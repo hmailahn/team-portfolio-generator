@@ -4,8 +4,6 @@
 
 const managerCard = (manager) => {
     
-
-
 return `<section>
 <div class="container">
     <div class="manager">
@@ -29,12 +27,9 @@ return `<section>
 
 
 const engineerCard = (engineer) => {
-   
     if(!engineer) {
         return ''
-    }
-    
-
+    } else {
     return `<section>
         <div class="container">
             <div class="engineer">
@@ -53,7 +48,7 @@ const engineerCard = (engineer) => {
             </div>
         </div>
     </section>`;
-
+    }
 };
 
 
@@ -62,7 +57,7 @@ const internCard = (intern) => {
 
     if(!intern) {
         return ''
-    }
+    } else {
 
     return `
     <section>
@@ -84,7 +79,7 @@ const internCard = (intern) => {
         </div>
     </section>
     `;
-
+    }
 };
 
 
@@ -122,9 +117,6 @@ ${engineerCard(engineer)}
 
 ${internCard(intern)}
 
-    
-
-    
 
 </div>
 </main> 
