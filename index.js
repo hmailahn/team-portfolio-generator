@@ -185,7 +185,9 @@ const menu = function () {
         if(confirmAddEmployee) {
             return menu(employees)
         } else {
+            console.log(employees);
             return employees;
+            
         }
     })
     
@@ -320,19 +322,21 @@ const menu = function () {
 // new Profile().managerProfile(); ????????
 managerProfile()
 .then(menu)
-.then(employeeDetails => {
-    const pageHTML = pageTemplate(employeeDetails)
+.then( console.log(employees));
+    
+//     employeeDetails => {
+//     const pageHTML = pageTemplate(employeeDetails)
 
-    fs.writeFile('./index.html', pageHTML, err => {
-        if (err) {
-            console.log(err);
-            return;
-        } else {
-            console.log("Page created! Check out index.html")
-        }
-    })
-console.log(employeeDetails);
-})
+//     fs.writeFile('./index.html', pageHTML, err => {
+//         if (err) {
+//             console.log(err);
+//             return;
+//         } else {
+//             console.log("Page created! Check out index.html")
+//         }
+//     })
+// console.log(Manager, intern, engineer);
+// })
 
 
 
