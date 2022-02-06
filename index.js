@@ -8,11 +8,7 @@ const pageTemplate = require('./dist/pageTemplate');
 
 //array of employees to push data too
 var employees = [];
-// function Profile() {
-//     this.engineer;
-//     this.intern;
-//     this.manager;
-// }
+
 
 //Make manager profile
 const managerProfile = function () {
@@ -195,10 +191,6 @@ const menu = function () {
 
 
 
-
-
-
-// new Profile().managerProfile(); ????????
 managerProfile()
 .then(menu)
 .then(data => {
@@ -213,8 +205,6 @@ managerProfile()
         }
     })
 });
-// console.log(Manager, intern, engineer);
-// })
 
 
 

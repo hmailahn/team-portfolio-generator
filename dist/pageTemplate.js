@@ -37,7 +37,7 @@ const engineerCard = (data) => {
                         <p></p>
                         <h6 class="card-text">ID: ${data.id}</h6>
                         <h6 class="card-text">Email: <a href="mailto:${data.email}">${data.email}</a></h6>
-                        <h6 class="card-text">GitHub: <a href="https://github.com/${data.github}">${data.github}</a></h6>
+                        <h6 class="card-text">GitHub: <a href="https://github.com/${data.github}" target="_blank" rel="noopener noreferrer">${data.github}</a></h6>
                     </div>
                 </div>
             </div>
