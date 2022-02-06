@@ -1,5 +1,7 @@
 // const { Manager, Engineer, Intern } = employees;
 
+const { registerPrompt } = require("inquirer");
+
 
 
 const managerCard = (manager) => {
@@ -25,11 +27,8 @@ return `<section>
 
 };
 
-
-const engineerCard = (engineer) => {
-    if(!engineer) {
-        return ''
-    } else {
+const employeeCard = () => {
+if (role === 'Engineer') {
     return `<section>
         <div class="container">
             <div class="engineer">
@@ -49,17 +48,8 @@ const engineerCard = (engineer) => {
         </div>
     </section>`;
     }
-};
-
-
-
-const internCard = (intern) => {
-
-    if(!intern) {
-        return ''
-    } else {
-
-    return `
+    if (role === 'Intern') {
+        return `
     <section>
         <div class="container">
             <div class="intern">
@@ -79,8 +69,11 @@ const internCard = (intern) => {
         </div>
     </section>
     `;
+    
     }
-};
+}
+
+
 
 
 //export function to generate entire page
@@ -113,9 +106,7 @@ const pageTemplate = (manager, intern, engineer) => {
 
 ${managerCard(manager)}
 
-${engineerCard(engineer)}
-
-${internCard(intern)}
+${employeeCard}
 
 
 </div>
