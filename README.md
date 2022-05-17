@@ -32,7 +32,7 @@ To use this Team Profile Generator, clone the repository onto your own machine. 
 ## Repository
 https://github.com/hmailahn/team-portfolio-generator
 ## Demo
-![Demo](https://drive.google.com/file/d/1euS_tevhrRssw5Rgad_Llao6kmXK3KwJ/view)
+[Demo](https://drive.google.com/file/d/1euS_tevhrRssw5Rgad_Llao6kmXK3KwJ/view)
 
 ## Contact-Me
 
